@@ -32,17 +32,20 @@ export const Task1 = () => {
   //   here i am merging object
   var mergeObj = Object.assign(FoodItem, emp);
   const ShowHandler = () => {
-    setEmployee(Object.create(emp));
-    setempKey(Object.keys(emp));
-    setEmpVal(Object.values(emp));
-    console.log(EmpVal);
-    // making one array of key and value
-    const KeyVal = Object.entries(emp);
-    console.log(Object.entries(EmpVal, empKey));
-    console.log("keyval", KeyVal);
-    setMAinArr(KeyVal);
-    // Here I AM prevent the objevct from updation...
-    Object.freeze(Employee);
+    if(position==="" ||type==="" || available===""){
+      alert("please fill all the box")
+    }
+    else{
+      setEmployee(Object.create(emp));
+      setempKey(Object.keys(emp));
+      setEmpVal(Object.values(emp));
+      // making one array of key and value
+      const KeyVal = Object.entries(emp);
+      setMAinArr(KeyVal);
+      // Here I AM prevent the objevct from updation...
+      Object.freeze(Employee);
+    }
+    
   };
 
   return (
@@ -86,7 +89,7 @@ export const Task1 = () => {
         <hr />
         <h2>Nested Array</h2>
         <h3>Value and keys</h3>
-        {MainArr.map((item) => item.map((val) => <p>{val}</p>))}
+        {MainArr.map((item) => item.map((val) => <p  key={Math.random()}>{val}</p>))}
       </div>
     </div>
   );
